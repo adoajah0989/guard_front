@@ -28,7 +28,7 @@ const NavBar = () => {
   const refreshToken = async () => {
     try {
       const response = await axios.get("http://localhost:5000/token");
-      setToken(response.data.accessToken);
+      setToken(response.data._vercel_jwt);
       const decoded = jwtDecode(response.data.accessToken);
       console.log(decoded);
       setName(decoded.name);
